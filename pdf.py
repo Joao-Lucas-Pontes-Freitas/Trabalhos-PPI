@@ -45,7 +45,7 @@ def extrair_texto(
 
 
 if __name__ == "__main__":
-    pagina_inicial = 101
-    num_paginas = 2
+    pagina_inicial = 104
+    num_paginas = 14
     paginas = range(pagina_inicial, pagina_inicial + num_paginas)
     extrair_texto(paginas)
