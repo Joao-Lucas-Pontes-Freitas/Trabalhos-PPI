@@ -38,7 +38,7 @@
               <option value="feminino"> Feminino </option>
             </select></label></p>
         <div>
-          <legend> Estado Civil: </legend>
+          <label> Estado Civil: </label>
           <div> <label> <input type="radio" name="estadoCivilPaciente" value="" checked> Prefiro não informar </label> </div>
           <div> <label> <input type="radio" name="estadoCivilPaciente" value="solteiro"> Solteiro(a) </label> </div>
           <div> <label> <input type="radio" name="estadoCivilPaciente" value="casado"> Casado(a) </label> </div>
@@ -64,7 +64,8 @@
 
       <fieldset>
         <h3>Informações Adicionais</h3>
-        <div> <label>Interesses:</label>
+        <div>
+          <label>Interesses: </label>
           <table>
             <tr>
               <td><label><input type="checkbox" name="interesses[]" value="filmes"> Filmes</label></td>
@@ -84,16 +85,16 @@
             </tr>
           </table>
         </div>
-        <p> <label> Cor favorita: <input type="color" name="corFavoritaPaciente" required> </label> </p>
+        <p> <label> Cor favorita: <input type="color" name="corFavoritaPaciente"> </label> </p>
         <p> <label> Número favorito: <input type="number" name="numeroFavoritoPaciente"></label></p>
-        <p> Informações complementares: </p>
+        <label> Informações complementares: </label>
         <p> <label> <textarea name="informacoesComplementares" rows="4" cols="50" placeholder="Digite informações adicionais se desejar"></textarea> </label>
         </p>
-        <p> Foto de Cadastro: </p>
+        <label> Foto de Cadastro: </label>
         <p> <label>Anexar imagem: <input type="file" name="imagemAnexo" accept="image/*"> </label> </p>
-        </f>
+      </fieldset>
 
-        <button type="submit">Enviar</button>
+      <button type="submit">Enviar</button>
 
     </form>
   </main>
