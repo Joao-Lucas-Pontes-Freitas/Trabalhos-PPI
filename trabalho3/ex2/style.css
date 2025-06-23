@@ -1,0 +1,37 @@
+p:has(input[type="text"]:valid)::after {
+  content: "✔";
+  color: green;
+  margin-left: 5px;
+}
+
+p:has(input[type="text"]:invalid)::after {
+  content: "✖";
+  color: red;
+  margin-left: 5px;
+}
+
+input[required] {
+  background-color: rgb(219, 208, 208);
+}
+
+fieldset {
+  border: 0.15rem solid black;
+  margin-left: 0.5rem;
+  padding-left: 1rem;
+  margin-bottom: 0.5rem;
+  background-color: rgb(240, 240, 240);
+}
+
+form > button {
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+  padding: 0.5rem;
+  background-color: rgb(0, 255, 0);
+  border: none;
+  font-size: larger;
+  border: 0.15rem solid black;
+}
+
+form > button:hover {
+  background-color: rgb(255, 255, 255);
+}

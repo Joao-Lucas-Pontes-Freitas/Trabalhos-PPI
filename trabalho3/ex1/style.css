@@ -47,7 +47,6 @@ a:active {
 
 section::before {
   content: "";
-  display: block;
   margin-bottom: 5px;
   border-top: 1px solid gray;
 }
