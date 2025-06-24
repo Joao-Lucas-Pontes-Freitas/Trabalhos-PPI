@@ -1,17 +1,71 @@
-p:has(input[type="text"]:valid)::after {
-  content: "✔";
-  color: green;
-  margin-left: 5px;
+body {
+  background-color: #ddd;
+  font-family: Helvetica, sans-serif;
+  line-height: 1.5;
 }
 
-p:has(input[type="text"]:invalid)::after {
-  content: "✖";
+a {
+  font-size: large;
+}
+
+a:link {
+  color: blue;
+  text-decoration: none;
+}
+
+a:visited {
+  color: rgb(184, 8, 184);
+  text-decoration: underline;
+}
+
+a:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+header {
+  background-color: white;
+  padding-left: 0.5rem;
+  border: 0.15rem solid black;
+}
+
+header > h1 {
+  color: blue;
+}
+
+header > h1:hover {
   color: red;
-  margin-left: 5px;
+  text-decoration: underline;
 }
 
-input[required] {
-  background-color: rgb(219, 208, 208);
+article {
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+
+article > h2 {
+  color: blue;
+}
+
+article > h2::before {
+  content: "";
+  display: block;
+  border-top: 2px solid #000;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+article > p {
+  margin: 0.5rem;
+  text-indent: 1.5rem;
+  font-size: medium;
+}
+
+address {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  background-color: rgb(240, 240, 240);
+  border: 0.15rem solid black;
 }
 
 fieldset {
@@ -22,16 +76,87 @@ fieldset {
   background-color: rgb(240, 240, 240);
 }
 
+fieldset > p {
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+
 form > button {
   margin-top: 0.5rem;
   margin-left: 0.5rem;
   padding: 0.5rem;
   background-color: rgb(0, 255, 0);
-  border: none;
-  font-size: larger;
   border: 0.15rem solid black;
+  font-size: larger;
 }
 
 form > button:hover {
   background-color: rgb(255, 255, 255);
+}
+
+input::placeholder {
+  color: gray;
+  font-weight: bold;
+  font-style: italic;
+}
+
+input[type="text"]::placeholder {
+  color: black;
+}
+
+#galeria {
+  width: 100%;
+  height: 34rem;
+  margin: 0.5rem;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+#galeria,
+#galeria th,
+#galeria td {
+  border: 0.2rem solid white;
+}
+
+#galeria th,
+#galeria td {
+  width: 100%;
+  height: 17rem;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0;
+}
+
+#galeria img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+input[type="text"][required] {
+  font-weight: bold;
+  background-color: rgb(216, 180, 180);
+}
+
+p:has(input[type="text"]:invalid) {
+  font-weight: bold;
+  background-color: red;
+}
+
+p:has(input[type="text"]:valid) {
+  font-weight: bold;
+  background-color: rgb(5, 197, 5);
+}
+
+p:has(input[type="text"]:valid)::after {
+  content: "✔";
+  color: green;
+  margin-left: 5px;
+}
+
+p:has(input[type="text"]:invalid)::after {
+  content: "✖";
+  color: red;
+  margin-left: 5px;
 }
