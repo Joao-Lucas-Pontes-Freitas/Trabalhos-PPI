@@ -10,6 +10,7 @@ body {
 
 main {
   background-color: white;
+  padding: 2rem;
 }
 
 h1,
@@ -17,7 +18,7 @@ h2 {
   color: rgb(140, 76, 8);
 }
 
-section + h2 + p {
+section > h2 + p {
   text-indent: 2rem;
 }
 
@@ -27,7 +28,6 @@ section + h2 + p {
 
 a:link {
   color: blue;
-  text-decoration: none;
 }
 
 a:visited {
@@ -45,8 +45,8 @@ a:active {
   text-decoration: underline;
 }
 
-section::before {
-  content: "";
-  margin-bottom: 5px;
-  border-top: 1px solid gray;
+section {
+  margin-top: 0px;
+  padding-bottom: 5px;
+  border-top: solid 1px gray;
 }
