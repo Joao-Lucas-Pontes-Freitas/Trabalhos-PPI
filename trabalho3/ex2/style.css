@@ -76,7 +76,7 @@ fieldset {
   background-color: rgb(240, 240, 240);
 }
 
-fieldset > p {
+.obrigatorio p {
   margin: 0.5rem;
   padding: 0.5rem;
 }
@@ -92,16 +92,6 @@ form > button {
 
 form > button:hover {
   background-color: rgb(255, 255, 255);
-}
-
-input::placeholder {
-  color: gray;
-  font-weight: bold;
-  font-style: italic;
-}
-
-input[type="text"]::placeholder {
-  color: black;
 }
 
 #galeria {
@@ -136,17 +126,29 @@ input[type="text"]::placeholder {
 
 input[type="text"][required] {
   font-weight: bold;
-  background-color: rgb(216, 180, 180);
+  background-color: rgb(0, 0, 0);
+  /* Cor de fundo de campos obrigatórios é cor de fundo do p ou do input? */
+  color: white;
+}
+
+input::placeholder {
+  color: gray;
+  font-weight: bold;
+  font-style: italic;
+}
+
+input[type="text"]::placeholder {
+  color: white;
 }
 
 p:has(input[type="text"]:invalid) {
   font-weight: bold;
-  background-color: red;
+  background-color: rgb(243, 145, 145);
 }
 
 p:has(input[type="text"]:valid) {
   font-weight: bold;
-  background-color: rgb(5, 197, 5);
+  background-color: rgb(103, 238, 103);
 }
 
 p:has(input[type="text"]:valid)::after {
@@ -159,4 +161,18 @@ p:has(input[type="text"]:invalid)::after {
   content: "✖";
   color: red;
   margin-left: 5px;
+}
+
+nav > ul > li > a {
+  font-size: large;
+}
+
+nav > ul > li:first-child > a {
+  font-weight: bold;
+}
+
+article > p:first-of-type {
+  font-size: large;
+  text-decoration: underline;
+  text-transform: uppercase;
 }
