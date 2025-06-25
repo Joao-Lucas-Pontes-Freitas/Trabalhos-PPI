@@ -143,7 +143,6 @@ input[type="text"]::placeholder {
 p:has(input[type="text"]:invalid) {
   font-weight: bold;
   background-color: rgb(243, 145, 145);
-  border:
 }
 
 p:has(input[type="text"]:valid) {
