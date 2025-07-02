@@ -8,13 +8,11 @@ main {
   position: absolute;
   top: 50%;
   left: 50%;
+  max-width: 300px;
   transform: translate(-50%, -50%);
   padding: 1.5rem 2rem 3rem 2rem;
   border-radius: 0.5rem;
   box-shadow: 0 0 1rem gray;
-}
-
-label {
   font-size: 1.5rem;
   color: rgb(148, 147, 147);
   box-sizing: border-box;
@@ -23,9 +21,8 @@ label {
 button,
 input {
   margin-top: 0.5rem;
-  padding: 0 0.5rem;
+  padding: 0.4rem 0.4rem;
   width: 100%;
-  height: 2rem;
   box-sizing: border-box;
   border: solid 1px gray;
   font-size: large;
@@ -35,4 +32,17 @@ input:focus {
   outline: none;
   border: solid 1px gray;
   box-shadow: 0 0 0.5rem gray;
+}
+
+button {
+  display: inline-block;
+  height: 3rem;
+  line-height: 3rem;
+  padding: 0 1rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.material-symbols-outlined {
+  vertical-align: middle;
 }
