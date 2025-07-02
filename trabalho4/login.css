@@ -5,29 +5,28 @@ body {
 
 main {
   background-color: white;
-  width: 50%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 3rem;
+  padding: 2rem 2rem;
   border-radius: 0.5rem;
-  box-shadow: 0 0 0.5rem gray;
+  box-shadow: 0 0 1rem gray;
 }
 
-label {
-  display: block;
-  font-size: 2rem;
+label,
+input {
+  font-size: 1.5rem;
   color: rgb(148, 147, 147);
   box-sizing: border-box;
+  width: 100%;
 }
 
-input {
-  display: block;
-  box-sizing: border-box;
-  width: 100%;
-  height: 2rem;
-  font-size: large;
+input:focus {
+  outline: none;
+  border: solid 1px gray;
+  box-shadow: 0 0 0.5rem gray;
+  color: black;
 }
 
 button {
@@ -35,4 +34,6 @@ button {
   width: 100%;
   height: 2rem;
   box-sizing: border-box;
+  background-color: #dddddd;
+  border: solid 1px gray;
 }
