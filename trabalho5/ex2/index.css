@@ -42,15 +42,14 @@ main {
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-basis: 250px;
   max-width: 350px;
   box-sizing: border-box;
+  margin-bottom: 1rem;
 }
 
-.image-card img {
-  border-radius: 0.25rem;
-  box-shadow: 0.2rem 0.2rem 0.2rem gray;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-sizing: border-box;
+.image-card h3{
+  margin-top: auto;
+  color: red;
 }
