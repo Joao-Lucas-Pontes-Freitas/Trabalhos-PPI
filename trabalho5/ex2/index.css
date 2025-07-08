@@ -13,13 +13,13 @@ header {
   text-align: center;
   box-sizing: border-box;
   width: 100%;
-  overflow: hidden;
+/* overflow: hidden; */
 }
 
 main {
   width: 70%;
   margin: 0 auto;
-  overflow: hidden;
+/* overflow: hidden; */
 }
 
 @media (max-width: 400px) {
