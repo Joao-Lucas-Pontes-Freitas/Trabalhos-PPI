@@ -17,9 +17,14 @@ header {
 }
 
 main {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
   width: 70%;
   margin: 0 auto;
-  /* overflow: hidden; */
 }
 
 @media (max-width: 400px) {
@@ -28,28 +33,29 @@ main {
   }
 }
 
-#flex_images {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  box-sizing: border-box;
-  margin-bottom: 1rem;
-}
-
-.image-card {
+.item-card {
   background-color: white;
   padding: 1rem;
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   flex-basis: 250px;
   max-width: 350px;
   box-sizing: border-box;
 }
 
-.image-card h3 {
-  margin-top: auto;
+.item-card h2 {
+  font-size: 1.1rem;
+}
+
+.item-card img {
+  width: 100%;
+  /* max-width: 350px; */
+  box-sizing: border-box;
+}
+
+.item-card h3 {
   color: red;
+  font-size: 0.8rem;
 }
