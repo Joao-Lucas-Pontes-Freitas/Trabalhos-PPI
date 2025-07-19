@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 3</title>
+</head>
+
+<body>
+    <fieldset>
+        <div> <label>Altura:<input type="text" name="altura" placeholder="Digite sua altura em cm (ex: 170)" size="30"></label></div>
+        <div>
+            <label><input type="radio" name="sexo" value="masculino"> Masculino</label>
+            <label><input type="radio" name="sexo" value="feminino"> Feminino</label>
+        </div>
+        <button type="button">Calcular peso ideal</button>
+        <p></p>
+    </fieldset>
+
+    <img src="print.png" alt="Exercício 3" style="max-width: 100%; height: auto;">
+
+    <script>
+        const button = document.querySelector('button');
+        button.onclick = () => {
+            let altura = parseInt(document.querySelector('input[name="altura"]').value);
+            let sexo = document.querySelector('input[name="sexo"]:checked')?.value;
+            let parSaida = document.querySelector('p');
+
+            if (!altura || !sexo) {
+                parSaida.textContent = 'Por favor, preencha todos os campos.';
+                return;
+            }
+
+            let pesoIdeal;
+            if (sexo === 'masculino') {
+                pesoIdeal = 52 + (0.75 * (altura - 152.4));
+            } else if (sexo === 'feminino') {
+                pesoIdeal = 52 + (0.67 * (altura - 152.4));
+            }
+
+            parSaida.textContent = `Seu peso ideal é ${pesoIdeal.toFixed(2)} kg.`;
+        };
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+</head>
+
+<body>
+    <input type="text" name="nome">
+    <button type="button">Digite seu nome e clique aqui</button>
+    <p></p>
+    <img src="print.png" alt="Exercício 2" style="max-width: 100%; height: auto;">
+
+    <script>
+        function sleep(ms) {
+            return new Promise(function (resolve) {
+                setTimeout(resolve, ms);
+            });
+        }
+
+        document.querySelector('button').onclick = async () => {
+            const nome = document.querySelector('input').value;
+            const alfabeto = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz '.split('');
+            const resultado = Array(nome.length).fill('');
+            const parSaida = document.querySelector('p');
+            parSaida.textContent = resultado.join('');
+
+            for (let i = 0; i < nome.length; i++) {
+                for (let j = 0; j < alfabeto.length; j++) {
+                    resultado[i] = alfabeto[j];
+                    parSaida.textContent = 'Olá, ' + resultado.join('');
+                    if (alfabeto[j] === nome[i]) {
+                        break;
+                    }
+                    await sleep(30);
+                }
+            }
+            parSaida.textContent = parSaida.textContent + '!';
+        };
+    </script>
+
+
+</body>
+
+</html>
