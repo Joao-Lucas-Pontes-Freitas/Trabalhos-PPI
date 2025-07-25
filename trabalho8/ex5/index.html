@@ -9,58 +9,66 @@
 </head>
 
 <body>
+    <main>
+        <h2> Curso de PPI </h2>
+        <ul>
+            <li>Aprenda a criar aplicações web do zero e se torne um desenvolvedor completo!</li>
+            <li>Se torne especialista em HTML, CSS e JavaScript!</li>
+            <li>Aprenda a ser um desenvolvedor web profissional e crie aplicações incríveis!</li>
+        </ul>
 
-    <h2> Curso de PPI </h2>
-    <ul>
-        <li>Aprenda a criar aplicações web do zero e se torne um desenvolvedor completo!</li>
-        <li>Se torne especialista em HTML, CSS e JavaScript!</li>
-        <li>Aprenda a ser um desenvolvedor web profissional e crie aplicações incríveis!</li>
-    </ul>
+        <span> <button id="inscrever">Quero me inscrever!</button> <button id="recusar">Recusar</button> </span>
+    </main>
 
-    <span> <button id="inscrever">Quero me inscrever!</button> <button id="recusar">Recusar</button> </span>
+    <div id="modais">
+        <div id="modalRecusado" class="modalContent">
+            <h2>Importante!</h2>
+            <p> Essa é sua última chance de aproveitar o <span>desconto exclusivo</span> para o <span>melhor curso de PPI da internet.</span></p>
+            <p> Depois que você fechar essa aba, <span>não será possível recuperar este desconto.</span></p>
+            <p> Clique <a href="#">aqui</a> para não perder essa oportunidade!</p>
+            <button>Fechar</button>
+        </div>
 
-    <div id="modalRecusado" class="modal">
-        <h2>Importante!</h2>
-        <p> Essa é sua última chance de aproveitar o <span>desconto exclusivo</span> para o <span>melhor curso de PPI da internet.</span></p>
-        <p> Depois que você fechar essa aba, <span>não será possível recuperar este desconto.</span></p>
-        <p> Clique <a href="#">aqui</a> para não perder essa oportunidade!</p>
-        <button>Fechar</button>
-    </div>
-
-    <div id="modalAceito" class="modal">
-        <h2>Parabéns!</h2>
-        <p>Você fez uma <span>excelente escolha</span> ao se inscrever no <span>melhor curso de PPI da internet!</span></p>
-        <p>Em breve você receberá todas as informações necessárias para <span>começar sua jornada</span> como desenvolvedor web.</p>
-        <p>Prepare-se para uma <span>experiência incrível de aprendizado!</span></p>
-        <button>Ir para a página do curso</button>
+        <div id="modalAceito" class="modalContent">
+            <h2>Parabéns!</h2>
+            <p>Você fez uma <span>excelente escolha</span> ao se inscrever no <span>melhor curso de PPI da internet!</span></p>
+            <p>Em breve você receberá todas as informações necessárias para <span>começar sua jornada</span> como desenvolvedor web.</p>
+            <p>Prepare-se para uma <span>experiência incrível de aprendizado!</span></p>
+            <button>Ir para a página do curso</button>
+        </div>
     </div>
 
     <script>
-        const buttonRecusar = document.querySelector('#recusar');
-        const buttonInscrever = document.querySelector('#inscrever');
+        const buttonRecusar = document.querySelector('#recusar'); // Botão de recusar inscrição
+        const buttonInscrever = document.querySelector('#inscrever'); // Botão de inscrever-se no curso
 
-        const modalRecusado = document.querySelector('#modalRecusado');
-        const modalAceito = document.querySelector('#modalAceito');
+        const modais = document.querySelector('#modais'); // Div que contém os modais
+        const modalRecusado = document.querySelector('#modalRecusado'); // Modal de recusa
+        const modalAceito = document.querySelector('#modalAceito'); // Modal da promoção
 
-        const buttonFechar = document.querySelector('#modalRecusado button');
-        const buttonAceito = document.querySelector('#modalAceito button');
+        const buttonFechar = document.querySelector('#modalRecusado button'); // Botão de fechar o modal de recusa
+        const buttonAceito = document.querySelector('#modalAceito button'); // Botão de fechar o modal de aceitação
 
         buttonRecusar.addEventListener('click', () => {
-            modalRecusado.classList.add('destaque');
+            modais.style.display = 'block'; // Exibe a div que contém os modais
+            modalRecusado.style.display = 'block'; // Exibe o modal de recusa
         });
 
         buttonFechar.addEventListener('click', () => {
-            modalRecusado.classList.remove('destaque');
+            modalRecusado.style.display = 'none'; // Fecha o modal de recusa
+            modais.style.display = 'none'; // Fecha a div que contém os modais
             // Poderia até apagar nesse caso de promoção única kkkkkkkkkkk
             // modal.remove();
         });
 
         buttonInscrever.addEventListener('click', () => {
-            modalAceito.classList.add('destaque');
+            modais.style.display = 'block'; // Exibe a div que contém os modais
+            modalAceito.style.display = 'block'; // Exibe o modal de aceitação
         });
 
         buttonAceito.addEventListener('click', () => {
-            modalAceito.classList.remove('destaque');
+            modalAceito.style.display = 'none'; // Fecha o modal de aceitação
+            modais.style.display = 'none'; // Fecha a div que contém os modais
         });
     </script>
 

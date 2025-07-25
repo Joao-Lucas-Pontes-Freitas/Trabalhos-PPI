@@ -4,7 +4,17 @@ body {
   padding: 2rem;
 }
 
-.modal {
+#modais {
+  background-color: #000b;
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.modalContent {
   background-color: white;
   position: absolute;
   top: 50%;
@@ -20,16 +30,12 @@ body {
   display: none;
 }
 
-#modalRecusado a{
+#modalRecusado a {
   color: blue;
   text-decoration: none;
 }
 
-.modal span{
-  color:red;
+.modalContent span {
+  color: red;
   font-weight: bold;
-}
-
-.destaque{
-  display: block;
 }
