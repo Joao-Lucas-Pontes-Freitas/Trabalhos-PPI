@@ -1,0 +1,58 @@
+body {
+  background-color: #dddddd;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+main {
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 1rem gray;
+  font-size: 1.5rem;
+  color: black;
+  box-sizing: border-box;
+}
+
+input {
+  padding: 0.5rem;
+  border: 1px solid black;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+}
+
+ol {
+  padding-left: 1.5rem;
+}
+
+ol li {
+  background-color: aqua;
+  margin-bottom: 0.4rem;
+  padding: 0.5rem;               
+  line-height: 1rem;            
+  box-sizing: border-box;
+  white-space: nowrap;    
+}
+
+ol li span {
+  display: inline-block; 
+  vertical-align: middle;
+  width: calc(100% - 2rem);
+}
+
+ol li button {
+  display: inline-block;
+  vertical-align: middle;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: red;
+  width: 2rem;                   
+  text-align: center;         
+}
+
+
+

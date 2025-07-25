@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Exercicio 4</title>
+</head>
+
+<body>
+
+    <main>
+
+        <form name="cadastro" action="#" method="post">
+            <h2> Cadastro do Usuário </h2>
+            <p> <label> Usuário: <input type="text" name="usuário" autofocus> <span></span> </label> </p>
+            <p> <label> Senha: <input type="password" name="senha"> <span></span> </label> </p>
+            <p> <label> E-mail: <input type="email" name="email"> <span></span> </label> </p>
+            <button>Cadastrar</button>
+        </form>
+
+    </main>
+
+    <script>
+        document.forms.cadastro.onsubmit = e => {
+            let valido = true; // Variável para controlar se o formulário é válido
+            campos = document.querySelectorAll('input'); // Seleciona todos os campos input
+            campos.forEach(element => {
+                if (!element.value) {
+                    const span = element.nextElementSibling; // Seleciona o span para mostrar a mensagem de erro
+                    span.textContent = `O campo ${element.name} deve ser preenchido(a)`; // Define o texto do span
+                    valido = false; // Marca o formulário como inválido
+                }
+                else {
+                    const span = element.nextElementSibling; // Seleciona o span do elemento atual
+                    span.textContent = ''; // Limpa a mensagem de erro se o campo estiver preenchido
+                }
+            });
+
+            if (!valido)
+                e.preventDefault(); // Impede o envio do formulário se algum campo não estiver preenchido
+        };
+
+    </script>
+
+</body>
+
+</html>

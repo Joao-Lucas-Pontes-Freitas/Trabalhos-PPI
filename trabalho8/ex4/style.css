@@ -1,0 +1,47 @@
+body {
+  background-color: #dddddd;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+main {
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1.5rem 2rem 3rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 1rem gray;
+  font-size: 1.5rem;
+  color: rgb(148, 147, 147);
+  box-sizing: border-box;
+  max-width: 450px;
+}
+
+input {
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.4rem;
+  width: 100%;
+  box-sizing: border-box;
+  border: solid 1px gray;
+  font-size: large;
+}
+
+input:focus {
+  outline: none;
+  border: solid 1px gray;
+  box-shadow: 0 0 0.5rem gray;
+}
+
+button {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.material-symbols-outlined {
+  vertical-align: middle;
+}
+
+span {
+  color: red;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Exercicio 3</title>
+</head>
+
+<body>
+
+    <main>
+        <form name="interesses" action="#" method="post">
+            <p> <label> Interesse: <input type="text" name="interesse" autofocus> </label> </p>
+            <ol></ol>
+        </form>
+    </main>
+
+    <script>
+        const form = document.forms.interesses.onsubmit = e => {
+            e.preventDefault(); // Impede o envio do formulário para evitar recarregamento da página
+        };
+        const input = document.querySelector('input'); // Seleciona o campo de input dos interesses
+
+        input.addEventListener('keyup', e => {
+            if (e.key === 'Enter') {
+                const ol = document.querySelector('ol'); // Seleciona a lista ordenada para criar o item
+                const li = document.createElement('li'); // Cria um novo item de lista
+
+                const span = document.createElement('span'); //Cria o span que vai ficar dentro do item
+                span.textContent = input.value; // Define o texto do span como o valor do input (o interesse que o usuário digitou)
+                li.appendChild(span); // Coloca o span dentro do item de lista
+
+                const button = document.createElement('button'); // Cria um botão para colocar dentro do item
+                button.textContent = '❌'; // Define o texto do botão como um ícone X
+                button.type = 'button'; // Define o tipo do botão como "button" para evitar o envio do formulário
+                button.onclick = () => {
+                    li.remove(); // Adiciona a funcionalidde onclick de remover o item inteiro da lista
+                };
+
+                li.appendChild(button); // Coloca o botão dentro do item de lista
+                ol.appendChild(li); // Adiciona o item de lista à lista ordenada
+                input.value = ''; // Limpa o campo de input após adicionar o item para que o usuário possa digitar outro interesse
+            }
+        });
+    </script>
+
+</body>
+
+</html>
