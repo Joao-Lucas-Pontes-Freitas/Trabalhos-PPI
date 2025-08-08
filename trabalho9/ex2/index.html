@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grade</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+  <!-- Bootstrap Icons CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=-4l4Dcr1QdN7tP5q-VjUrCccVem41sEvV4Rb77PltqaoViC8679lBgy9DT9eCStRD_V2svgwDt7aU-y4kTpo_i48O4u3jegJkjSdpdds7f4rbrB-9EyWTUmRsjK2mMq0" charset="UTF-8"></script>
+  <style>
+    body {
+      padding: 1rem;
+    }
+
+    @media (min-width: 2000px) {
+      .container {
+        max-width: 50%;
+      }
+    }
+
+    .btn-block {
+      width: 100%;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <main>
+      <form class="row g-3" action="cadastraCliente.php" method="post">
+
+        <!-- Nome e CPF - Extra small / todos os dispositivos -->
+        <div class="col-9">
+          <label for="inputNome" class="form-label">Nome completo</label>
+          <input type="text" class="form-control" id="inputNome" name="nome">
+        </div>
+        <div class="col-3">
+          <label for="inputCPF" class="form-label">CPF</label>
+          <input type="text" class="form-control" id="inputCPF" name="cpf">
+        </div>
+
+        <!-- E-mail e senha - small (>= 576) -->
+        <div class="col-sm-9">
+          <label for="inputEmail" class="form-label">E-mail</label>
+          <input type="email" class="form-control" id="inputEmail" name="email">
+        </div>
+        <div class="col-sm-3">
+          <label for="inputSenha" class="form-label">Senha</label>
+          <input type="password" class="form-control" id="inputSenha" name="senha">
+        </div>
+
+        <!-- CEP e endereço - medium (>= 768)-->
+        <div class="col-sm-2">
+          <label for="inputCEP" class="form-label">CEP</label>
+          <input type="text" class="form-control" id="inputCEP" name="cep">
+        </div>
+        <div class="col-sm-10">
+          <label for="inputEndereco" class="form-label">Endereço</label>
+          <input type="text" class="form-control" id="inputEndereco" name="endereco" placeholder="Avenida João Naves de Ávila">
+        </div>
+
+        <!-- Bairro, cidade e estado - large (≥ 992px) -->
+        <div class="col-sm-4">
+          <label for="inputBairro" class="form-label">Bairro</label>
+          <input type="text" class="form-control" id="inputBairro" name="bairro">
+        </div>
+        <div class="col-sm-4">
+          <label for="inputCidade" class="form-label">Cidade</label>
+          <input type="text" class="form-control" id="inputCidade" name="cidade">
+        </div>
+        <div class="col-sm-4">
+          <label for="inputEstado" class="form-label">Estado</label>
+          <select id="inputEstado" class="form-select" name="estado">
+            <option selected>Selecione</option>
+            <option>MG</option>
+          </select>
+        </div>
+
+        <div class="col-12">
+          <button class="btn btn-primary w-100">Cadastrar</button>
+        </div>
+      </form>
+    </main>
+  </div>
+
+  <!-- Opcional: Bootstrap Bundle com JavaScript e Popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-popRpmFF9JQgExhfw5tZT4I9/CI5e2QcuUZPOVXb1m7qUmeR2b50u+YFEYe1wgzy" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

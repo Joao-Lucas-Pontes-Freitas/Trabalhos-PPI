@@ -1,0 +1,4 @@
+a;a@a;a
+b;b@b;b
+<script>alert('Ataq. X S S')</script>;a@a;a
+<script>window.location='http://www.ufu.br'</script>;a@a;a
