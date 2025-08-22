@@ -1,0 +1,32 @@
+i. Qual foi o código de status retornado?
+ii. Qual o valor do cabeçalho Content-Type da resposta HTTP? Por quê?
+iii. Qual o valor recebido no corpo da resposta HTTP (aba Response)?
+iv. Qual o valor do cabeçalho Server da resposta HTTP?
+v. A requisição HTTP possui o cabeçalho Content-Type? Por quê?
+
+Caso 1
+
+i. 200
+ii. text/html. Porque não foi especificado, esse é o padrão
+iii. o texto Uberlândia
+iv. openresty
+v. Não, porque não foi especificado o header no código
+
+Caso 2
+i. 404
+ii. text/html. Porque não foi especificado, esse é o padrão
+iii. 38500-100 is not available
+iv. openresty
+v. Não, porque não foi especificado no código
+
+Caso 3
+
+1. 500
+2. Vazio
+
+Caso 4
+
+1. 200
+2. O corpo da resposta mostra o erro de sintaxe do PHP.
+3. Essa configuração é útil para desenvolvimento para testar o código e pegar erros.
+4. Não pode ser usada em produção para não vazar para o usuário real.

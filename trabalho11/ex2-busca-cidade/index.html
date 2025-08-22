@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Teste Ajax - onerror</title>
+  <style>
+    body {
+      font: 1.2rem Helvetica;
+      line-height: 1.5rem;
+      background-image: url("images/bg2.jpg");
+      background-size: cover;
+      margin: 0;
+    }
+
+    main {
+      width: 60%;
+      background-color: #fff;
+      border: 0.5px solid #ccc;
+      margin: 0;
+      padding: 2% 4%;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+    <label for="cep">Informe o CEP (38400-100 ou 38700-000)</label>
+    <input type="text" id="cep">
+    <span id="cidade"><span>
+  </main>
+
+  <script>
+    function buscaCidade(cep) { // Cria a função busca cidade
+      if (cep.length != 9) // Se for um cep de tamamnho inválido, retorna vazio
+        return;
+
+      let xhr = new XMLHttpRequest(); // Cria o objeto XMLHttpRequest para fazer a requsição 
+      xhr.open("GET", "busca-cidade.php?cep=" + cep); // Define a requsição http Get para o servidor no caminho busca-cidade.php?cep= cep digitado pelo usuário
+      xhr.onload = function () { // Define a ação a ser executada quando a resposta voltar
+        if (xhr.status == 200) // Se o retorno for sucesso e tiver códio 200 então pega o lemento cidade do html e coloca como conteudo o texto retornado
+          document.getElementById("cidade").textContent = xhr.responseText; 
+        else { // Se o retorno não for sucesso, limpa o campo cidade e imprime no console o resultado que voltou do servidor mais o status
+          document.getElementById("cidade").textContent = "";
+          console.log(xhr.status, xhr.statusText, xhr.responseText);
+        }
+      };
+
+      xhr.onerror = function () { // Define a função que imprime no log avisando se tiver erro de rede
+        console.log("Erro de rede");
+      };
+
+      xhr.send(); // Envia a requisção assincrona para o servidor
+    }
+
+    const inputCep = document.querySelector("#cep"); // Pega o elemento de input do CEP
+    inputCep.onkeyup = () => buscaCidade(inputCep.value); // Chama a função buscaCidade passando o valor do input quando o usuário solta a tecla. 
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+b? Quais são as principais diferenças desse exemplo comparado ao ex3-recebendo-json1?
+- No caso atual há uma autenticação do usuário antes de rodar o script que pega o cep e retorna os dados do endereço. Além disso, a reuqisção agora é um post especificando o formato do body (content type) ao invés de ser um get padrão.
+
+c)  
+i. Qual o valor dos cabeçalhos Content-Type e Content-Length? application/json e 58
+ii. O que é apresentado na aba Payload? Um objeto json contendo email, apikey e cep
+iii. O que isso significa? Que estão sendo enviados dados para o servidor

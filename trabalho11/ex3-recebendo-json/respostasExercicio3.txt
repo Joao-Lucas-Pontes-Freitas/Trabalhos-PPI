@@ -1,0 +1,11 @@
+i. Qual foi o código de status retornado?
+ii. Qual o valor do cabeçalho Content-Type da resposta HTTP? Por quê?
+iii. Qual o valor recebido no corpo da resposta HTTP (aba Response)?
+iv. Qual o valor do cabeçalho Server da resposta HTTP?
+v. A requisição HTTP possui o cabeçalho Content-Type? Por quê?
+
+i. 200
+ii. application/json. Porque foi definido no php.
+iii. {"rua":"Av Floriano","bairro":"Centro","cidade":"Uberl\u00e2ndia"}
+iv. openresty
+v. Não. Porque não foi definido.
