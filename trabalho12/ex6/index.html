@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta de Cotações - Alpha Vantage</title>
+</head>
+
+<body>
+    <h1>Consultar Cotações de Ações (Alpha Vantage)</h1>
+    <form id="form-cotacoes">
+        <p>
+            <label>
+                Código da ação 1:
+                <input type="text" name="acao1" placeholder="Ex: PETR4.SA" required>
+            </label>
+        </p>
+        <p>
+            <label>
+                Código da ação 2:
+                <input type="text" name="acao2" placeholder="Ex: VALE3.SA" required>
+            </label>
+        </p>
+        <p>
+            <label>
+                Código da ação 3:
+                <input type="text" name="acao3" placeholder="Ex: ITUB4.SA" required>
+            </label>
+        </p>
+        <button type="submit">Buscar cotações</button>
+    </form>
+    <br><br>
+    <div id="result"></div>
+    <script>
+        const API_KEY = "YW5IOCR8Z1AHCCKN";
+        const urlBase = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=";
+
+        const form = document.querySelector('#form-cotacoes');
+        form.onsubmit = async function (event) {
+            event.preventDefault();
+            const resultado = document.getElementById('result');
+            resultado.innerHTML = '';
+
+            const acoes = document.querySelectorAll('input');
+
+            try {
+                let cotacoes = await Promise.all(Array.from(acoes).map(acao => {
+                    if (acao.value) {
+                        return fetch(`${urlBase}${acao.value}&apikey=${API_KEY}`)
+                    }
+                }));
+
+                cotacoes = await Promise.all(cotacoes.map(res => res.json()));
+
+                acoes.forEach((acao, index) => {
+                    if (acao.value && cotacoes[index] && cotacoes[index]["Global Quote"]) {
+                        const dados = cotacoes[index]["Global Quote"];
+                        const divCotacao = document.createElement('div');
+                        divCotacao.className = 'cotacao';
+                        divCotacao.innerHTML = `<strong>${dados["01. symbol"]}</strong>: R$ ${parseFloat(dados["05. price"]).toFixed(2)} (Variação: ${dados["10. change percent"]})`;
+                        resultado.appendChild(divCotacao);
+                    } else {
+                        const divCotacao = document.createElement('div');
+                        divCotacao.className = 'cotacao';
+                        divCotacao.innerHTML = `<strong>${acao.value}</strong>: Código inválido ou dados indisponíveis.`;
+                        resultado.appendChild(divCotacao);
+                    }
+                });
+            } catch (error) {
+                console.error("Erro ao buscar cotações:", error);
+            }
+        };
+    </script>
+</body>
+
+</html>

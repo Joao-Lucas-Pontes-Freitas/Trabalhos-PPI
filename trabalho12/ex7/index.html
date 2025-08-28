@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cotações</title>
+</head>
+
+<body>
+
+    <main>
+        <h1>Conversor de Moedas</h1>
+        <h3>Instruções de uso</h3>
+        <p> Selecione a moeda de origem e a moeda de destino, insira o valor a ser convertido e clique em "Converter".</p>
+        <select id="moedaOrigem"></select>
+        <select id="moedaDestino"></select>
+        <p>
+            <label>
+                <input type="number" id="valor" placeholder="Valor">
+            </label>
+        </p>
+        <button id="converter">Converter</button>
+        <br>
+        <br>
+        <div id="resultado"></div>
+    </main>
+
+    <script>
+        async function buscarMoedas() {
+            const url = 'https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies.json';
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('Erro ao buscar moedas');
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error(error);
+                return;
+            }
+        }
+
+        async function buscarTaxas(base) {
+            const url = `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${base}.json`;
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('Erro ao buscar taxas');
+                const data = await response.json();
+                return data[base];
+            } catch (error) {
+                console.error(error);
+                return;
+            }
+        }
+
+        async function converterValor() {
+            const resultado = document.getElementById('resultado');
+            try {
+                const valor = parseFloat(document.getElementById('valor').value);
+                const moedaOrigem = document.getElementById('moedaOrigem').value;
+                const moedaDestino = document.getElementById('moedaDestino').value;
+
+                if (isNaN(valor)) {
+                    throw new Error('Valor inválido');
+                }
+
+                const taxas = await buscarTaxas(moedaOrigem);
+                const taxaDestino = taxas[moedaDestino];
+
+                if (!taxaDestino) {
+                    throw new Error('Moeda não encontrada');
+                }
+
+                const moedas = await buscarMoedas();
+                const nomeDestino = moedas[moedaDestino] || moedaDestino;
+
+                const valorConvertido = valor * taxaDestino;
+                resultado.textContent = `Resultado: ${valorConvertido.toFixed(2)} ${nomeDestino}`;
+            }
+            catch (error) {
+                resultado.textContent = 'Erro: ' + error.message;
+                console.log(error);
+            }
+        }
+
+        window.onload = async () => {
+            const selectOrigem = document.getElementById('moedaOrigem');
+            const selectDestino = document.getElementById('moedaDestino');
+            try {
+                const moedas = await buscarMoedas();
+
+                Object.keys(moedas).forEach(codigo => {
+                    const nome = moedas[codigo] || codigo;
+                    const option1 = document.createElement('option');
+                    option1.value = codigo;
+                    option1.textContent = nome;
+                    selectOrigem.appendChild(option1);
+
+                    const option2 = document.createElement('option');
+                    option2.value = codigo;
+                    option2.textContent = nome;
+                    selectDestino.appendChild(option2);
+                });
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        document.getElementById('converter').onclick = converterValor;
+
+    </script>
+
+</body>
+
+</html>

@@ -70,11 +70,11 @@
 
   <script>
 
-    function renderProducts(newProducts) {
+    function renderProducts(newProducts) { // Função que adiciona na árvore dom os novos produtos
       const prodsSection = document.getElementById("products");
       // veja observações sobre o elemento <template> no código HTML
-      const divItemTemplate = document.getElementById("item-template").content.firstElementChild;
-      for (let product of newProducts) {
+      const divItemTemplate = document.getElementById("item-template").content.firstElementChild; // pega o template para ser usado
+      for (let product of newProducts) { // para cada produto a ser adiconado cria os novos elemntos do template e ao final adiciona na seção de produtos
         const newItem = divItemTemplate.cloneNode(true);
         newItem.querySelector(".item-image").src = product.imagePath;
         newItem.querySelector(".item-name").textContent = product.name;
@@ -83,24 +83,24 @@
       };
     }
 
-    async function loadProducts() {
+    async function loadProducts() { // Função que pede os novos produtos e chama o render para um array de produtos retornados
       try {
-        let response = await fetch("more-products.php");
-        if (!response.ok) throw new Error(response.statusText);
-        var products = await response.json();
+        let response = await fetch("more-products.php"); // Chama o php que retorna os pordutos
+        if (!response.ok) throw new Error(response.statusText); // Se der erro lança uma exceção
+        var products = await response.json(); // Faz chamada assincrona para trasnformar em objeto
       }
-      catch (e) {
+      catch (e) { // EM carro de erro mstra no log
         console.error(e);
         return;
       }
-      renderProducts(products);
+      renderProducts(products); // Chama a função renderProducts para renderizar os novos produtos a aprtir do array retornado
     }
 
-    window.onload = function () {
+    window.onload = function () { // Quando a página é carregada, chamar novos produtos
       loadProducts();
     }
 
-    window.onscroll = function () {
+    window.onscroll = function () { // Quando o usuário descer a tela, carregar mais produtos
       if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
         loadProducts();
       }
